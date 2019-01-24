@@ -12,7 +12,7 @@
 <input class="form-control container" placeholder="Enter Instagram video link" name="url">
 </br>
 
-<input type="submit" class="btn btn-outline-primary container" value="submit">
+<input type="submit" class="btn btn-outline-primary container" value="submit" >
 
 </div>
 
@@ -70,8 +70,11 @@ $src = strrev($src);
 
  <iframe src="<?php echo $src;?>" width= "100%" height= "500"></iframe> 
 
+<a href="download.php?src=<?php echo $src; ?>&name=<?php echo $title; ?>" class="btn btn-lg btn-success">Download Now</a>
+
+<!--
 <div style="width:90%; height: 400px; margin: 5%;background : url('demo.gif') no-repeat; background-position: center; background-size: cover;">
-<h1 class="text-danger">How To Download?</h1></div>
+<h1 class="text-danger">How To Download?</h1></div>-->
 <?php
 
 }
