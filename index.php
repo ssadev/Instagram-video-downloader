@@ -70,7 +70,12 @@ $src = strrev($src);
 
  <iframe src="<?php echo $src;?>" width= "100%" height= "500"></iframe> 
 
-<a href="download.php?src=<?php echo $src; ?>&name=<?php echo $title; ?>" class="btn btn-lg btn-success">Download Now</a>
+<?php
+$name = preg_replace('/^(\W+)/', '', $title);
+$name = preg_replace('/(\W+)/', '-', $name);
+
+?>
+<a href="download.php?src=<?php echo $src; ?>&name=<?php echo $name; ?>" class="btn btn-lg btn-success">Download Now</a>
 
 <!--
 <div style="width:90%; height: 400px; margin: 5%;background : url('demo.gif') no-repeat; background-position: center; background-size: cover;">

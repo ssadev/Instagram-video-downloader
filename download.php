@@ -1,5 +1,5 @@
 <?php
-if(_Download($_GET['src'], "InstagramDownload.mp4")){
+if(_Download($_GET['src'], $_GET['name']."Sarj991.mp4")){
 header("location: index.php");
 }
 
