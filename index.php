@@ -75,7 +75,9 @@ $name = preg_replace('/^(\W+)/', '', $title);
 $name = preg_replace('/(\W+)/', '-', $name);
 
 ?>
-<a href="download.php?src=<?php echo $src; ?>&name=<?php echo $name; ?>" class="btn btn-lg btn-success">Download Now</a>
+<a href="download.php?src=<?php echo $src; ?>&name=<?php echo $name; ?>" class="btn btn-lg btn-success" >Download Now</a>
+
+<!--
 
 <!--
 <div style="width:90%; height: 400px; margin: 5%;background : url('demo.gif') no-repeat; background-position: center; background-size: cover;">
@@ -84,3 +86,4 @@ $name = preg_replace('/(\W+)/', '-', $name);
 
 }
 ?>
+<script src="/jquery.js"> </script>

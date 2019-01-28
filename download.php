@@ -1,9 +1,8 @@
 <?php
-if(_Download($_GET['src'], $_GET['name']."Sarj991.mp4")){
-header("location: index.php");
-}
+if(isset($_GET['src'])){
 
-function _Download($f_location, $f_name){
+
+function download($f_location, $f_name){
   $file = uniqid() . '.mp4';
 
   file_put_contents($file,file_get_contents($f_location));
@@ -17,6 +16,9 @@ function _Download($f_location, $f_name){
 unlink($file);
 }
 
+if(download($_GET['src'], $_GET['name']."Sarj991.mp4")){
+header("location: index.php");
+}
 
-
+}
 ?>
