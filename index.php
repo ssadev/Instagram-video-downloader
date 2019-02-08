@@ -38,7 +38,7 @@ foreach($html->find('meta') as $e){
      if($e->property == "og:title"){
 $title = $e->content;
 //echo "<b>Post Icon : <b> <img src='".$image. "' /></br>";
-
+echo '<div class="container alert alert-primary">'.$title. '</div>';
 }
 }
 
@@ -62,12 +62,10 @@ $src = strrev($srcs);
 $src = substr($src, 13);
 $src = strrev($src);
 
-
-
+if($src != ""){
 ?>
 
-<div class="container alert alert-primary"><?php echo  $title ;?></div>
-
+<!---- If it's a video ---->
  <iframe src="<?php echo $src;?>" width= "100%" height= "500"></iframe> 
 
 <?php
@@ -75,7 +73,38 @@ $name = preg_replace('/^(\W+)/', '', $title);
 $name = preg_replace('/(\W+)/', '-', $name);
 
 ?>
-<a href="download.php?src=<?php echo $src; ?>&name=<?php echo $name; ?>" class="btn btn-lg btn-success" >Download Now</a>
+<a href="http://localhost:8080/curl/Instagram-video-downloader/download.php?src=<?php echo $src; ?>&name=<?php echo $name; ?>&type=mp4" class="btn btn-lg btn-success" >Download Now</a>
+
+
+<?php
+}else{
+preg_match('/display_url(.*.)display_resources/', $res, $src);
+$srcs = substr($src[1], 13);
+
+$src = strrev($srcs);
+$src = substr($src, 13);
+$src = strrev($src);
+
+
+echo '<input type="hidden" value="'.$src.'" id="get-src-hidden">';
+
+
+$name = preg_replace('/^(\W+)/', '', $title);
+$name = preg_replace('/(\W+)/', '-', $name);
+?>
+<!----- if it's a Image ----->
+<div class="container col-10 " id="image-div" style="height: 400px; background: gray; background-position: center; "></div>
+<a href="http://localhost:8080/curl/Instagram-video-downloader/download.php?src=<?php echo $src; ?>&name=<?php echo $name; ?>&type=jpg" class="btn btn-lg btn-success" >Download Now</a>
+
+
+
+<?php
+}
+
+?>
+
+
+
 
 <!--
 
@@ -87,3 +116,9 @@ $name = preg_replace('/(\W+)/', '-', $name);
 }
 ?>
 <script src="/jquery.js"> </script>
+<script>
+var url = $("#get-src-hidden").val();
+
+$("#image-div").css({"background": "url('"+url+"')"});
+
+</script>
